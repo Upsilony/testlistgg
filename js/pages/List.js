@@ -52,7 +52,7 @@ export default {
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Poin</div>
-                            <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
+                            <p v-if="selected + 1 <= 75">{{ score(selected + 1, level.percentToQualify, level.percentToQualify) }} (100% = {{ score(selected + 1, 100, level.percentToQualify) }})</p>
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
@@ -67,7 +67,8 @@ export default {
                             <p>{{ level.difficulty || 'Demon' }}</p>
                         </li>
                     </ul>
-                    <h2>Records</h2>
+                    <h2>Rekor</h2>
+                    <p class="extended"><b>{{ level.records.length }}</b> rekor terdaftar</p>
                     <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
                     <p v-else>This level does not accept new records.</p>
