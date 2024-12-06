@@ -1,0 +1,174 @@
+:root {
+    --color-background: white;
+    --color-on-background: black;
+    --color-background-hover: rgb(224, 224, 224);
+    --color-on-background-hover: black;
+    --color-primary: rgb(52, 0, 100);
+    --color-on-primary: white;
+    --color-extended: rgba(0, 0, 0, 0.5);
+    --color-legacy: rgba(0, 0, 0, 0.25);
+    --color-tags: rgba(0, 0, 0, 0.25);
+    --color-intpm: rgba(0, 0, 0, 0.15);
+    --color-error: #de0000;
+    --color-on-error: white;
+}
+
+main.dark,
+header.dark {
+    color-scheme: dark;
+    --color-background: rgb(10, 1 ,44);
+    --color-on-background: #00ffff;
+    --color-background-hover: rgb(6, 0, 28);
+    --color-on-background-hover: rgb(0, 255, 255);
+    --color-primary: rgb(52, 0, 100);
+    --color-on-primary: rgb(0, 255, 255);
+    --color-extended: rgba(0, 255, 255, 0.75);
+    --color-legacy: rgba(0, 255, 255, 0.5);
+    --color-tags: rgb(0, 255, 255, 0.25);
+    --color-intpm: rgba(102, 0, 255, 0.25);
+    --color-error: #de0000;
+    --color-on-error: white;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header,
+main {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    display: grid;
+    grid-template-columns: minmax(16rem, 1.05fr) minmax(16rem, 2fr) minmax(
+            16em,
+            1fr
+        );
+    column-gap: 4rem;
+}
+
+
+header {
+    display: flex;
+    padding-inline: calc(25vw - 13rem);
+    height: 4.25rem;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+@media screen and (min-width: 1366px) {
+    header {
+        display: grid;
+        padding-inline: 0;
+    }
+}
+header .logo {
+    justify-self: end;
+    align-self: center;
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+header .nav {
+    flex: 1;
+}
+
+main {
+    height: 0;
+    flex: 1;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+    column-gap: 2rem;
+}
+main > div {
+    overflow-y: auto;
+}
+
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  transition-duration: 0.5s;
+}
+
+.spinner::after {
+  content: "";
+  width: 200px;
+  height: 200px;
+  border: 25px solid var(--color-legacy);
+  border-top-color: var(--color-extended);
+  border-radius: 50%;
+  box-shadow: 0px 0px 50px var(--color-extended);
+  animation: loading 0.75s ease-in-out infinite;
+}
+
+@keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+input[type="checkbox"] {
+    height: 1.25rem;
+    width: 1.25rem;
+    cursor: pointer;
+    margin: 0;
+}
+.legacy {
+    color: var(--color-legacy);
+}
+.extended {
+    color: var(--color-extended);
+}
+.top1 {
+    color: var(--color-top1);
+}
+.top2 {
+    color: var(--color-top2);
+}
+.top3 {
+    color: var(--color-top3);
+}
+.dark-bg {
+    background: var(--color-background-hover);
+    border-radius: 10px;
+    padding: 25px;
+}
+.btngl {
+    background: var(--color-tags);
+    padding: 10px;
+    font-family: "Lexend Deca", sans-serif;
+    border-radius: 0.2cm;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.btngl:hover {
+    background: var(--color-legacy);
+    transition: 0.2s;
+}
+.btn-no-cover {
+    font-family: "Lexend Deca", sans-serif;
+    cursor: pointer;
+    background: transparent;
+    border: none !important;
+    margin: -5px;
+    font-size: 20px;
+    text-decoration: solid;
+}
+.btn-no-cover:hover {
+    text-decoration: underline;
+}
