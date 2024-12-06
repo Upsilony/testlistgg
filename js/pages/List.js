@@ -111,11 +111,17 @@ export default {
                     <br><br>
                     <p>Belum ada catatan perubahan</p>
                     </div>
-                    <div class="og">
-                        <p class="type-label-md">Original List by <a href="https://me.redlimerl.com/" target="_blank">RedLime</a></p>
+                    <div class="dark-bg">
+                    <h2>Peraturan</h2>
+                    <br>
+                    <p>Setiap tindakan dilakukan sesuai dengan aturan kami. Untuk menjamin pengalaman yang konsisten, pastikan untuk memverifikasinya sebelum mengirim rekor!</p>
+                    <br><br>
+                    <a class="btngl" href="/extended-page/rules.html">Halaman peraturan</a>
                     </div>
-                    <template v-if="editors">
-                        <h3>List Editors</h3>
+                    <div class="dark-bg" v-if="editors">
+                    <br>
+                        <h3>List Staff:</h3>
+                        <br>
                         <ol class="editors">
                             <li v-for="editor in editors">
                                 <img :src="\`/assets/\${roleIconMap[editor.role]}\${store.dark ? '-dark' : ''}.svg\`" :alt="editor.role">
@@ -123,6 +129,7 @@ export default {
                                 <p v-else>{{ editor.name }}</p>
                             </li>
                         </ol>
+                    </div>
                     </template>
                     <h3>Submission Requirements</h3>
                     <p>
