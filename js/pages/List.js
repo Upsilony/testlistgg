@@ -42,18 +42,18 @@ export default {
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <div class="packs" v-if="level.packs.length > 0">
-                        <div v-for="pack in level.packs" class="tag" :style="{background:pack.colour}">
-                            <p>{{pack.name}}</p>
-                        </div>
-                    </div>
-                    <div v-if="level.showcase" class="tabs">
+                   <div v-if="level.showcase" class="tabs">
                         <button class="tab type-label-lg" :class="{selected: !toggledShowcase}" @click="toggledShowcase = false">
                             <span class="type-label-lg">Verification</span>
                         </button>
                         <button class="tab" :class="{selected: toggledShowcase}" @click="toggledShowcase = true">
                             <span class="type-label-lg">Showcase</span>
                         </button>
+                    <div class="packs" v-if="level.packs.length > 0">
+                        <div v-for="pack in level.packs" class="tag" :style="{background:pack.colour}">
+                            <p>{{pack.name}}</p>
+                        </div>
+                    </div>
                     <iframe class="video" :src="embed(level.verification)" frameborder="0"></iframe>
                     <ul class="stats">
                         <li v-if="selected + 1 <= 150">
