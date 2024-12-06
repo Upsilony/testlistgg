@@ -75,9 +75,15 @@ export default {
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
-                                <p>{{ record.percent }}%</p>
+                                <p v-if="record.percent == 100"><b>{{ record.percent }}%</b></p>
+                                <p v-else>{{ record.percent }}%</p>
                             </td>
                             <td class="user">
+                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
+                            </td>
+                            <td class="legacy">
+                                <img v-if="record.legacy" :src="\`/assets/legacy.svg\`" alt="Legacy" title="Legacy Record">
+                            </td>
                                 <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
                             </td>
                             <td class="mobile">
@@ -97,6 +103,13 @@ export default {
                 <div class="meta">
                     <div class="errors" v-show="errors.length > 0">
                         <p class="error" v-for="error of errors">{{ error }}</p>
+                    </div>
+                    <div class="dark-bg">
+                    <h2>Changelog:</h2>
+                    <br>
+                    <p class="extended">...</p>
+                    <br><br>
+                    <p>Belum ada catatan perubahan</p>
                     </div>
                     <div class="og">
                         <p class="type-label-md">Original List by <a href="https://me.redlimerl.com/" target="_blank">RedLime</a></p>
