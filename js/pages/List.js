@@ -116,7 +116,7 @@ export default {
                     <br>
                     <p>Setiap tindakan dilakukan sesuai dengan aturan kami. Untuk menjamin pengalaman yang konsisten, pastikan untuk memverifikasinya sebelum mengirim rekor!</p>
                     <br><br>
-                    <a class="btngl" href="/extended-page/rules.html">Halaman peraturan</a>
+                    <a class="btngl" href="/extended-page/rules.html">Halaman aturan</a>
                     </div>
                     <div class="dark-bg" v-if="editors">
                     <br>
@@ -131,31 +131,15 @@ export default {
                         </ol>
                     </div>
                     </template>
-                    <h3>Submission Requirements</h3>
-                    <p>
-                        Achieved the record without using hacks (however, FPS bypass is allowed, up to 360fps)
-                    </p>
-                    <p>
-                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
-                    </p>
-                    <p>
-                        Have either source audio or clicks/taps in the video. Edited audio only does not count
-                    </p>
-                    <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
-                    </p>
-                    <p>
-                        The recording must also show the player hit the endwall, or the completion will be invalidated.
-                    </p>
-                    <p>
-                        Do not use secret routes or bug routes
-                    </p>
-                    <p>
-                        Do not use easy modes, only a record of the unmodified level qualifies
-                    </p>
-                    <p>
-                        Once a level falls onto the Legacy List, we accept records for it for 24 hours after it falls off, then afterwards we never accept records for said level
-                    </p>
+                    <div class="og">
+                        <iframe class="discord-box" src="https://discord.com/widget?id=1303563415066902619&theme=dark" width="270" height="300" allowtransparency="false" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    </div>
+                    <div class="og" class="dark-bg">
+                        <p>Semua kredit pergi ke <a href="https://tsl.pages.dev/#/" target="_blank">TSL</a> untuk website dan <a href="https://tgdps-dl.pages.dev/#/" target="_blank">TGDPS Demonlist</a> untuk inspirasi layout, yang situs webnya merupakan replika dari ini. Ini tidak ada koneksi/afiliasi dengan TSL. List Original oleh <a href="https://me.redlimerl.com/" target="_blank">RedLime</a></p>
+                    </div>
+                    <button class="btngl" @click="selected = 0">#1 Demon</button>
+                    <button class="btngl" @click="selected = 75">Tambahan</button>
+                    <button class="btngl" @click="selected = 150">Legasi</button>
                 </div>
             </div>
         </main>
