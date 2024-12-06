@@ -46,8 +46,16 @@ export default {
                         <div v-for="pack in level.packs" class="tag" :style="{background:pack.colour}">
                             <p>{{pack.name}}</p>
                         </div>
+                        <div v-if="level.showcase" class="tabs">
+                        <button class="tab type-label-lg" :class="{selected: !toggledShowcase}" @click="toggledShowcase = false">
+                            <span class="type-label-lg">Verification</span>
+                        </button>
+                        <button class="tab" :class="{selected: toggledShowcase}" @click="toggledShowcase = true">
+                            <span class="type-label-lg">Showcase</span>
+                        </button>
                     </div>
-                    <iframe class="video" :src="embed(level.verification)" frameborder="0"></iframe>
+                    </div>
+                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
                     <ul class="stats">
                         <li v-if="selected + 1 <= 150">
                             <div class="type-title-sm">Points:</div>
