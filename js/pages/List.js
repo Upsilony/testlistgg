@@ -1,5 +1,5 @@
 import { store } from "../main.js";
-import { embed } from "../util.js";
+import { embed, getFontColours } from "../util.js";
 import { score } from "../score.js";
 import { fetchEditors, fetchList } from "../content.js";
 
@@ -41,10 +41,10 @@ export default {
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
                     <div v-if="level.showcase" class="tabs">
-                        <button class="tab type-label-lg" :class="{selected: !toggledShowcase}" @click="toggledShowcase = false">
+                        <button class="tabs type-label-lg" :class="{selected: !toggledShowcase}" @click="toggledShowcase = false">
                             <span class="type-label-lg">Verification</span>
                         </button>
-                        <button class="tab" :class="{selected: toggledShowcase}" @click="toggledShowcase = true">
+                        <button class="tabs" :class="{selected: toggledShowcase}" @click="toggledShowcase = true">
                             <span class="type-label-lg">Showcase</span>
                         </button>
                     </div>
