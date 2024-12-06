@@ -119,7 +119,6 @@ export default {
                     <a class="btngl" href="/extended-page/rules.html">Halaman aturan</a>
                     </div>
                     <div class="dark-bg" v-if="editors">
-                    <br>
                         <h3>List Staff:</h3>
                         <br>
                         <ol class="editors">
