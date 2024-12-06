@@ -45,7 +45,7 @@ export default {
                             <span class="type-label-lg">Verification</span>
                         </button>
                         <button class="nav__cta type-label-lg" :class="{selected: toggledShowcase}" @click="toggledShowcase = true">
-                            <span class="type-label-lg">Showcase</span>
+                            <span class="nav__tab type-label-lg">Showcase</span>
                         </button>
                     </div>
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
