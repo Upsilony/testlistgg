@@ -117,8 +117,6 @@ export default {
                     <p>Setiap tindakan dilakukan sesuai dengan aturan kami. Untuk menjamin pengalaman yang konsisten, pastikan untuk memverifikasinya sebelum mengirim rekor!</p>
                     <br><br>
                     <a class="btngl" href="/extended-page/rules.html">Halaman aturan</a>
-                    <br>
-                    <a class="btngl" href="/extended-page/faq.html">Penempatan list</a>
                     </div>
                     <div class="dark-bg" v-if="editors">
                         <h3>List Staff:</h3>
