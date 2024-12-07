@@ -51,7 +51,7 @@ export default {
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
-                            <div class="type-title-sm">Poin</div>
+                            <div class="dark-bg type-title-sm">Poin</div>
                             <p v-if="selected + 1 <= 75">{{ score(selected + 1, level.percentToQualify, level.percentToQualify) }} (100% = {{ score(selected + 1, 100, level.percentToQualify) }})</p>
                         </li>
                         <li>
@@ -59,11 +59,11 @@ export default {
                             <p>{{ level.id }}</p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Kata sandi</div>
+                            <div class="dark-bg type-title-sm">Kata sandi</div>
                             <p>{{ level.password || 'Gratis copy' }}</p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Demon difficulty</div>
+                            <div class="dark-bg type-title-sm">Demon difficulty</div>
                             <p>{{ level.difficulty || 'Demon' }}</p>
                         </li>
                     </ul>
