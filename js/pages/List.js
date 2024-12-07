@@ -55,7 +55,7 @@ export default {
                             <p v-if="selected + 1 <= 75">{{ score(selected + 1, level.percentToQualify, level.percentToQualify) }} (100% = {{ score(selected + 1, 100, level.percentToQualify) }})</p>
                         </li>
                         <li>
-                            <div class="type-title-sm">ID</div>
+                            <div class="dark-bg type-title-sm">ID</div>
                             <p>{{ level.id }}</p>
                         </li>
                         <li>
