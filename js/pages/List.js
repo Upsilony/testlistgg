@@ -51,27 +51,27 @@ export default {
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
-                            <div class="dark-bg type-title-sm">Poin</div>
+                            <div class="type-title-sm">Poin</div>
                             <p v-if="selected + 1 <= 75">{{ score(selected + 1, level.percentToQualify, level.percentToQualify) }} (100% = {{ score(selected + 1, 100, level.percentToQualify) }})</p>
                         </li>
                         <li>
-                            <div class="dark-bg type-title-sm">ID</div>
+                            <div class="type-title-sm">ID</div>
                             <p>{{ level.id }}</p>
                         </li>
                         <li>
-                            <div class="dark-bg type-title-sm">Kata sandi</div>
+                            <div class="type-title-sm">Kata sandi</div>
                             <p>{{ level.password || 'Gratis copy' }}</p>
                         </li>
                         <li>
-                            <div class="dark-bg type-title-sm">Demon difficulty</div>
+                            <div class="type-title-sm">Demon difficulty</div>
                             <p>{{ level.difficulty || 'Demon' }}</p>
                         </li>
                     </ul>
                     <h2>Rekor</h2>
                     <p class="extended"><b>{{ level.records.length }}</b> rekor terdaftar</p>
-                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
-                    <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
-                    <p v-else>This level does not accept new records.</p>
+                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> atau lebih baik untuk kualifikasi</p>
+                    <p v-else-if="selected +1 <= 150"><strong>100%</strong> atau lebih baik untuk kualifikasi</p>
+                    <p v-else>Kamu dapat mengirimkan rekor untuk level ini, tetapi tidak ada poin list yang akan diberikan.</p>
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
