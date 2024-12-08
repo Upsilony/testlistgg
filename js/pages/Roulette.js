@@ -13,25 +13,25 @@ export default {
         <main v-else class="page-roulette">
             <div class="sidebar">
                 <p class="type-label-md" style="color: #aaa">
-                    Shameless copy of the Extreme Demon Roulette by <a href="https://matcool.github.io/extreme-demon-roulette/" target="_blank">matcool</a>.
+                    Salinan tak tahu malu dari Roulette Extreme Demon oleh <a href="https://matcool.github.io/extreme-demon-roulette/" target="_blank">matcool</a>.
                 </p>
                 <form class="options">
                     <div class="check">
                         <input type="checkbox" id="main" value="Main List" v-model="useMainList">
-                        <label for="main">Main List</label>
+                        <label for="main">List Utama</label>
                     </div>
                     <div class="check">
                         <input type="checkbox" id="extended" value="Extended List" v-model="useExtendedList">
-                        <label for="extended">Extended List</label>
+                        <label for="extended">List Tambahan</label>
                     </div>
                     <div class="check">
                         <input type="checkbox" id="legacy" value="Legacy List" v-model="useLegacyList">
-                        <label for="legacy">Legacy List</label>
+                        <label for="legacy">List Legasi</label>
                     </div>
-                    <Btn @click.native.prevent="onStart">{{ levels.length === 0 ? 'Start' : 'Restart'}}</Btn>
+                    <Btn @click.native.prevent="onStart">{{ levels.length === 0 ? 'Mulai' : 'Ulangi'}}</Btn>
                 </form>
                 <p class="type-label-md" style="color: #aaa">
-                    The roulette saves automatically.
+                    Roulette menyimpan secara otomatis.
                 </p>
                 <form class="save">
                     <p>Manual Load/Save</p>
@@ -67,16 +67,16 @@ export default {
                             </div>
                             <form class="actions" v-if="!givenUp">
                                 <input type="number" v-model="percentage" :placeholder="placeholder" :min="currentPercentage + 1" max=100>
-                                <Btn @click.native.prevent="onDone">Done</Btn>
-                                <Btn @click.native.prevent="onGiveUp" style="background-color: #e91e63;">Give Up</Btn>
+                                <Btn @click.native.prevent="onDone">Selesai</Btn>
+                                <Btn @click.native.prevent="onGiveUp" style="background-color: #e91e63;">Menyerah</Btn>
                             </form>
                         </div>
                         <!-- Results -->
                         <div v-if="givenUp || hasCompleted" class="results">
-                            <h1>Results</h1>
-                            <p>Number of levels: {{ progression.length }}</p>
-                            <p>Highest percent: {{ currentPercentage }}%</p>
-                            <Btn v-if="currentPercentage < 99 && !hasCompleted" @click.native.prevent="showRemaining = true">Show remaining levels</Btn>
+                            <h1>Hasil</h1>
+                            <p>Jumlah level: {{ progression.length }}</p>
+                            <p>Persen tertinggi: {{ currentPercentage }}%</p>
+                            <Btn v-if="currentPercentage < 99 && !hasCompleted" @click.native.prevent="showRemaining = true">Tampilkan level yang tersisa</Btn>
                         </div>
                         <!-- Remaining Levels -->
                         <template v-if="givenUp && showRemaining">
@@ -142,7 +142,7 @@ export default {
             return this.progression[this.progression.length - 1] || 0;
         },
         placeholder() {
-            return `At least ${this.currentPercentage + 1}%`;
+            return `Minimal ${this.currentPercentage + 1}%`;
         },
         hasCompleted() {
             return (
@@ -227,7 +227,7 @@ export default {
                 this.percentage <= this.currentPercentage ||
                 this.percentage > 100
             ) {
-                this.showToast('Invalid percentage.');
+                this.showToast('Persen tidak valid.');
                 return;
             }
 
@@ -245,7 +245,7 @@ export default {
         onImport() {
             if (
                 this.isActive &&
-                !window.confirm('This will overwrite the currently running roulette. Continue?')
+                !window.confirm('Ini akan menimpa roullete yang sedang berjalan. Lanjutkan?')
             ) {
                 return;
             }
@@ -258,7 +258,7 @@ export default {
             const file = this.fileInput.files[0];
 
             if (file.type !== 'application/json') {
-                this.showToast('Invalid file.');
+                this.showToast('File tidak valid.');
                 return;
             }
 
@@ -277,7 +277,7 @@ export default {
                 this.showRemaining = false;
                 this.percentage = undefined;
             } catch {
-                this.showToast('Invalid file.');
+                this.showToast('File tidak valid.');
                 return;
             }
         },
