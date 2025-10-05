@@ -1,0 +1,26 @@
+{
+    "id": 1160,
+    "name": "EXTNES",
+    "author": "slvenus",
+    "creators": [],
+    "verifier": "Upsilony",
+    "difficulty": "Extreme Demon",
+    "password": "Free Copy",
+    "verification": "https://youtu.be/9mRDDAtBgGs",
+    "percentToQualify": 53,
+    "records": [
+        {
+            "user": "test",
+            "link": "https://youtu.be/CcQ3A7ROEAo",
+            "percent": 100,
+            "hz": "60",
+            "mobile": true
+        },
+        {
+            "user": "test2",
+            "link": "https://www.youtube.com/watch?v=0wOvPqaBauo",
+            "percent": 100,
+            "hz": "360"
+        }
+    ]
+}
