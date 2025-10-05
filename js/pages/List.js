@@ -103,13 +103,6 @@ export default {
                         <p class="error" v-for="error of errors">{{ error }}</p>
                     </div>
                     <div class="dark-bg">
-                    <h2>Changelog:</h2>
-                    <br>
-                    <p class="extended">February 13 2024</p>
-                    <br><br>
-                    <p><button class="btn-no-cover" @click="selected = 113">Khaotic Planet</button> has been placed at <b>#114</b>, above crestfallen and below Chromatic Meteor.<br><br>This change pushes DirtyPaws into the Legacy list.</p>
-                    </div>
-                    <div class="dark-bg">
                     <h2>Guidelines</h2>
                     <br>
                     <p>Every action is conducted in accordance with our guidelines. In order to guarantee a consistent experience, make sure to verify them before submitting a record!</p>
