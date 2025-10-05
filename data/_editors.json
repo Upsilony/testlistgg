@@ -1,12 +1,27 @@
 [
     {
         "role": "owner",
-        "name": "DAuditor617",
-        "link": "https://youtube.com/@dauditor617?si=wbjdMBt9xkJaPbfy"
+        "name": "Upsilony",
+        "link": "https://www.youtube.com/@Upsilony_"
     },
     {
-        "role": "owner",
-        "name": "GamerDash",
-        "link": "https://youtube.com/@geometrykotak?si=cdzaYIEs9JvZnLhu"
+        "role": "admin",
+        "name": "BlackFemgram",
+        "link": "https://www.youtube.com/@BlackFemgram"
+    },
+    {
+        "role": "helper",
+        "name": "Upsilony",
+        "link": "https://www.youtube.com/@Upsilony_"
+    },
+    {
+        "role": "trial",
+        "name": "BlackFemgram",
+        "link": "https://www.youtube.com/@BlackFemgram"
+    },
+    {
+        "role": "dev",
+        "name": "Upsilony",
+        "link": "https://www.youtube.com/@Upsilony_"
     }
 ]
