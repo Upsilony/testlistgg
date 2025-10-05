@@ -22,10 +22,10 @@ header.dark {
     --color-on-background-hover: white;
     --color-primary: #87397e;
     --color-on-primary: white;
-    --color-extended: rgba(255, 217, 0, 0.75);
-    --color-legacy: rgba(255, 217, 0, 0.5);
-    --color-tags: rgb(255, 217, 0, 0.25);
-    --color-intpm: rgba(102, 0, 255, 0.25);
+    --color-extended: rgba(115, 115, 115, 0.75);
+    --color-legacy: rgba(115, 115, 115, 0.5);
+    --color-tags: rgb(115, 115, 115, 0.25);
+    --color-intpm: rgba(115, 115, 115, 0.25);
     --color-error: #de0000;
     --color-on-error: white;
 }
