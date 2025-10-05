@@ -24,9 +24,11 @@ export default {
             <div class="list-container">
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
-                        <td class="rank">
-                            <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
-                            <p v-else class="type-label-lg">Legacy</p>
+                    <td class="rank">
+                    <p v-if="i + 1 === 1" class="type-label-lg" class="top1">#{{ i + 1 }}</p>
+                    <p v-else-if="i + 1 <= 75" class="type-label-lg">#{{ i + 1 }}</p>
+                    <p v-else-if="i + 1 <= 150" class="extended">#{{ i + 1 }}</p>
+                    <p v-else="i + 1 > 150" class="type-label-lg" class="legacy">–</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i">
@@ -40,38 +42,36 @@ export default {
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <div v-if="level.showcase" class="tabs">
-                        <button class="btn" :class="{selected: !toggledShowcase}" @click="toggledShowcase = false">
-                            <span class="type-label-lg">Verification</span>
-                        </button>
-                        <button class="btn" :class="{selected: toggledShowcase}" @click="toggledShowcase = true">
-                            <span class="type-label-lg">Showcase</span>
-                        </button>
+                    <div class="packs" v-if="level.packs.length > 0">
+                        <div v-for="pack in level.packs" class="tag" :style="{background:pack.colour}">
+                            <p>{{pack.name}}</p>
+                        </div>
                     </div>
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
+                    <iframe class="video" :src="embed(level.verification)" frameborder="0"></iframe>
                     <ul class="stats">
-                        <li>
-                            <div class="type-title-sm">Poin</div>
+                        <li v-if="selected + 1 <= 150">
+                            <div class="type-title-sm">Points:</div>
                             <p v-if="selected + 1 <= 75">{{ score(selected + 1, level.percentToQualify, level.percentToQualify) }} (100% = {{ score(selected + 1, 100, level.percentToQualify) }})</p>
+                            <p v-else>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
                         </li>
                         <li>
-                            <div class="type-title-sm">ID</div>
-                            <p>{{ level.id }}</p>
+                            <div class="type-title-sm">ID:</div>
+                            <p class="type-label-lg">{{ level.id }}</p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Kata sandi</div>
-                            <p>{{ level.password || 'Gratis copy' }}</p>
+                            <div class="type-title-sm">Password:</div>
+                            <p>{{ level.password || 'Free Copy' }}</p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Demon difficulty</div>
+                            <div class="type-title-sm">Difficulty:</div>
                             <p>{{ level.difficulty || 'Demon' }}</p>
                         </li>
                     </ul>
-                    <h2>Rekor</h2>
-                    <p class="extended"><b>{{ level.records.length }}</b> rekor terdaftar</p>
-                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> atau lebih baik untuk kualifikasi</p>
-                    <p v-else-if="selected +1 <= 150"><strong>100%</strong> atau lebih baik untuk kualifikasi</p>
-                    <p v-else>Kamu dapat mengirimkan rekor untuk level ini, tetapi tidak ada poin list yang akan diberikan.</p>
+                    <h2>Records</h2>
+                    <p class="extended"><b>{{ level.records.length }}</b> records registered</p>
+                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
+                    <p v-else-if="selected + 1 <= 150"><strong>100%</strong> to qualify</p>
+                    <p v-else>You may submit a record for this level, but no list points will be awarded.</p>
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
@@ -83,8 +83,6 @@ export default {
                             </td>
                             <td class="legacy">
                                 <img v-if="record.legacy" :src="\`/assets/legacy.svg\`" alt="Legacy" title="Legacy Record">
-                            </td>
-                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
                             </td>
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
@@ -107,20 +105,19 @@ export default {
                     <div class="dark-bg">
                     <h2>Changelog:</h2>
                     <br>
-                    <p class="extended">...</p>
+                    <p class="extended">February 13 2024</p>
                     <br><br>
-                    <p>Belum ada catatan perubahan</p>
+                    <p><button class="btn-no-cover" @click="selected = 113">Khaotic Planet</button> has been placed at <b>#114</b>, above crestfallen and below Chromatic Meteor.<br><br>This change pushes DirtyPaws into the Legacy list.</p>
                     </div>
                     <div class="dark-bg">
-                    <h2>Peraturan</h2>
+                    <h2>Guidelines</h2>
                     <br>
-                    <p>Setiap tindakan dilakukan sesuai dengan aturan kami. Untuk menjamin pengalaman yang konsisten, pastikan untuk memverifikasinya sebelum mengirim rekor!</p>
+                    <p>Every action is conducted in accordance with our guidelines. In order to guarantee a consistent experience, make sure to verify them before submitting a record!</p>
                     <br><br>
-                    <a class="btngl" href="/extended-page/rules.html">Halaman aturan</a>
-                    <br><br><br>
-                    <a class="btngl" href="/extended-page/faq.html">Penempatan list</a>
+                    <a class="btngl" href="/extended-page/rules.html">Guidelines Page</a>
                     </div>
                     <div class="dark-bg" v-if="editors">
+                    <br>
                         <h3>List Staff:</h3>
                         <br>
                         <ol class="editors">
@@ -131,16 +128,15 @@ export default {
                             </li>
                         </ol>
                     </div>
-                    </template>
                     <div class="og">
-                        <iframe class="discord-box" src="https://discord.com/widget?id=1303563415066902619&theme=dark" width="270" height="300" allowtransparency="false" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                        <iframe class="discord-box" src="https://discord.com/widget?id=866826240476053514&theme=dark" width="270" height="300" allowtransparency="false" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                     </div>
                     <div class="og" class="dark-bg">
-                        <p>Semua kredit pergi ke <a href="https://tsl.pages.dev/#/" target="_blank">TSL</a> untuk website dan <a href="https://tgdps-dl.pages.dev/#/" target="_blank">TGDPS Demonlist</a> untuk inspirasi layout, yang situs webnya merupakan replika dari ini. Ini tidak ada koneksi/afiliasi dengan TSL. List Original oleh <a href="https://me.redlimerl.com/" target="_blank">RedLime</a></p>
+                        <p>All credit goes to <a href="https://tsl.pages.dev/#/" target="_blank">TSL</a>, whose website this is a replica of. We obtained permission from its owners and have no connection to TSL. Original List by <a href="https://me.redlimerl.com/" target="_blank">RedLime</a></p>
                     </div>
                     <button class="btngl" @click="selected = 0">#1 Demon</button>
-                    <button class="btngl" @click="selected = 75">Tambahan</button>
-                    <button class="btngl" @click="selected = 150">Legasi</button>
+                    <button class="btngl" @click="selected = 75">Extended</button>
+                    <button class="btngl" @click="selected = 150">Legacy</button>
                 </div>
             </div>
         </main>
@@ -153,26 +149,13 @@ export default {
         errors: [],
         roleIconMap,
         store,
-        toggledShowcase: false,
     }),
     computed: {
         level() {
             return this.list[this.selected][0];
         },
-        video() {
-            if (!this.level.showcase) {
-                return embed(this.level.verification);
-            }
-
-            return embed(
-                this.toggledShowcase
-                    ? this.level.showcase
-                    : this.level.verification
-            );
-        },
     },
     async mounted() {
-        // Hide loading spinner
         this.list = await fetchList();
         this.editors = await fetchEditors();
 
@@ -194,6 +177,7 @@ export default {
             }
         }
 
+        // Hide loading spinner
         this.loading = false;
     },
     methods: {
