@@ -2,14 +2,14 @@
     {   
         "name": "Test",
         "levels": [
-            "sakupen_circles"
+            "EXTNES"
         ],
         "colour": "linear-gradient(to bottom, #fefb22 0%, #12ecec 100%)"
     },
     {   
         "name": "Test2",
         "levels": [
-            "sakupen_circles"
+            "EXTNES"
         ],
         "colour": "#adfeff"
     }
